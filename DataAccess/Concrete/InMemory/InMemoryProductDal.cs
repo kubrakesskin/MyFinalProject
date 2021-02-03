@@ -3,11 +3,12 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryProductDal : IProductDal 
+    public class InMemoryProductDal : IProductDal //İMPLEMENTE ET
         //hata aldıgında tekrar ampulden implemente et
     //hemen PUBLIC YAZ, ampule tıkla Using ekle,tekrar ampule tıkla implement interface de.
     {
@@ -72,6 +73,16 @@ namespace DataAccess.Concrete.InMemory
             //where içindeki şarta uyan elemanları yeni bir liste haline getirir ve onu döndürür.
             //business'a geç ve iş kurallarını yaz
 
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     } 
 }

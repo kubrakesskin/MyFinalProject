@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal:IEntityRepository<Product> //I VARSA PUBLİC UNUTMA :) 
+    public interface ICustomerDal:IEntityRepository<Customer>
     {
-       
     }
 }
