@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    public class ProductCategory:IEntity
+    public class Product:IEntity
         //ampulden usingi seç
     {
         public int ProductId { get; set; }

@@ -14,52 +14,52 @@ namespace DataAccess.Concrete.InMemory
     //hemen PUBLIC YAZ, ampule tıkla Using ekle,tekrar ampule tıkla implement interface de.
     {
         //veri var gibi simüle edilir.
-        List<ProductCategory> _products;
+        List<Product> _products;
         //global değişken olduğu için _ kullandık.
 
         //ctor yaz + çift tab
         public InMemoryProductDal()
         {
-            _products = new List<ProductCategory> { 
+            _products = new List<Product> { 
             //içinde ürün barındıran liste demek.
 
-                new ProductCategory{ProductId=1 , CategoryId=1, ProductName="Bardak",UnitPrice=15, UnitsInStock=15},
-                new ProductCategory{ProductId=2 , CategoryId=1, ProductName="Kamera",UnitPrice=500, UnitsInStock=3},
-                new ProductCategory{ProductId=3 , CategoryId=2, ProductName="Telefon",UnitPrice=1500, UnitsInStock=2},
-                new ProductCategory{ProductId=4 , CategoryId=2, ProductName="Klavye",UnitPrice=150, UnitsInStock=65},
-                new ProductCategory{ProductId=5 , CategoryId=2, ProductName="Fare",UnitPrice=85, UnitsInStock=1},
+                new Product{ProductId=1 , CategoryId=1, ProductName="Bardak",UnitPrice=15, UnitsInStock=15},
+                new Product{ProductId=2 , CategoryId=1, ProductName="Kamera",UnitPrice=500, UnitsInStock=3},
+                new Product{ProductId=3 , CategoryId=2, ProductName="Telefon",UnitPrice=1500, UnitsInStock=2},
+                new Product{ProductId=4 , CategoryId=2, ProductName="Klavye",UnitPrice=150, UnitsInStock=65},
+                new Product{ProductId=5 , CategoryId=2, ProductName="Fare",UnitPrice=85, UnitsInStock=1},
             };
         }
 
         //burada beş adres verildi ve hepsi farklı referans numarasına sahiptir.
 
-        public void Add(ProductCategory product)
+        public void Add(Product product)
         {
             _products.Add(product);
         }
 
-        public void Delete(ProductCategory product)
+        public void Delete(Product product)
         {
 
             //LINQ-Languge Integrated Query -> AYNI KODU BUNUNLA YAZALIM.
-            ProductCategory productToDelete = _products.SingleOrDefault(p=>p.ProductId ==product.ProductId); //Lambda denilir.
+            Product productToDelete = _products.SingleOrDefault(p=>p.ProductId ==product.ProductId); //Lambda denilir.
             //ampulden system.linq seç
             //her p için gönderilen p'nin Id'si eşitse buna eşitle. 
             _products.Remove(productToDelete);
         }
 
-        public List<ProductCategory> GetAll()
+        public List<Product> GetAll()
         {
             return _products; //veritabanını oldugu gibi döndür
         }
 
         
 
-        public void Update(ProductCategory product)
+        public void Update(Product product)
         //VERİ KAYNAGINDAKİ REFERANSI BULUP GÜNCELLİYORUZ.
         {
             //Gönderdiğim ürün id'sine sahip olan listedeki ürünü bul
-            ProductCategory productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId); //Lambda denilir.
+            Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId); //Lambda denilir.
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryId = product.CategoryId;
             productToUpdate.UnitPrice = product.UnitPrice;
@@ -68,7 +68,7 @@ namespace DataAccess.Concrete.InMemory
             //BUNU BİTİRDİĞİNDE IPRODUCTDAL'A GİT
         }
 
-        public List<ProductCategory> GetAllByCategory(int categoryId)
+        public List<Product> GetAllByCategory(int categoryId)
         {
             return _products.Where(p => p.CategoryId == categoryId).ToList();
             //where içindeki şarta uyan elemanları yeni bir liste haline getirir ve onu döndürür.
@@ -76,12 +76,12 @@ namespace DataAccess.Concrete.InMemory
 
         }
 
-        public List<ProductCategory> GetAll(Expression<Func<ProductCategory, bool>> filter = null)
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public ProductCategory Get(Expression<Func<ProductCategory, bool>> filter)
+        public Product Get(Expression<Func<Product, bool>> filter)
         {
             throw new NotImplementedException();
         }

@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     //NuGet: başkalarının yazdığı kodları( paketleri ) kullanmak için
 
-    public class EfProductDal : EfEntityRepositoryBase<ProductCategory, NorthwindContext>, IProductDal
+    public class EfProductDal : EfEntityRepositoryBase<Product, NorthwindContext>, IProductDal
     //iki defa ampulden seç
     {
         public List<ProductDetailDto> GetProductDetails()

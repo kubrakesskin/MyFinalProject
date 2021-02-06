@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         }
         //prop çift tab
-        public DbSet<ProductCategory> Products { get; set; } //product producta baglı
+        public DbSet<Product> Products { get; set; } //product producta baglı
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         //artık ürün, kategori ve müşterilerle ilgili kodlarımızı yazabiliriz. (efproductdal'a gidebiliriz.)
