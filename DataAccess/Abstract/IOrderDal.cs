@@ -1,14 +1,12 @@
 ﻿using Core.DataAccess;
 using Entities.Concrete;
-//using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace DataAccess
 {
-    public interface ICategoryDal : IEntityRepository<Category>
+    public interface IOrderDal:IEntityRepository<Order>
     {
-      
     }
 }

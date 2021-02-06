@@ -1,11 +1,12 @@
-﻿using Entities.Abstract;
+﻿//using Entities.Abstract;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entities.Concrete
 {
-    public class Product:IEntity
+    public class ProductCategory:IEntity
         //ampulden usingi seç
     {
         public int ProductId { get; set; }
