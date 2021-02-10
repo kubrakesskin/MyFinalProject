@@ -32,7 +32,20 @@ namespace ConsoleUI
 
             //ConsoleUI-add-p.referance-üçünü de seç
             //ardından ampulden çözdür.
-            foreach (var product in productManager.GetProductDetails())
+
+            var result = productManager.GetProductDetails();
+            if (result.Success == true)
+            {
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+            foreach (var product in result.Data)
             {
                 Console.WriteLine(product.ProductName + "/" + product.CategoryName);
             }
