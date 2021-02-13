@@ -22,6 +22,7 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
+        //AOP
 
         public IResult Add(Product product) //void oldugu icin özel tip döndürmez
         {
@@ -41,7 +42,7 @@ namespace Business.Concrete
         //ampulden using
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
+            if (DateTime.Now.Hour == 1)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
            //ampulden generate field
